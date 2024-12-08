@@ -17,12 +17,14 @@ WHERE bill_total > £400);
 CREATE VIEW roomTotals
 AS (SELECT room_name, total_sum
 FROM restRoom_management, restBill);
+GROUP BY room_name;
 
 --4
 
 CREATE VIEW teamTotals
-AS (SELECT first_name, surname
-FROM restStaff);
+SELECT CONCAT(first_name, ' ', surname)
+AS headwaiter_name;
+FROM restStaff;
 
 CREATE OR REPLACE VIEW teamTotals
 AS
